@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package io.eigr.spawn.starwars.empire;
+
+option java_package = "io.eigr.spawn.starwars.empire";
+
+import "io/eigr/spawn/starwars/common.proto";
+
+message TiefighterState {}
+
+service Tiefighter { 
+    rpc Fight(io.eigr.spawn.starwars.FireRequest) returns (io.eigr.spawn.starwars.FireResponse); 
+}
