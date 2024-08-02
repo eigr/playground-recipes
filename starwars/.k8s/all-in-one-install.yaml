@@ -1,0 +1,59 @@
+---
+apiVersion: spawn-eigr.io/v1
+kind: ActorSystem
+metadata:
+  name: empire-system
+  namespace: default
+spec:
+  externalInvocation:
+    enabled: "true"
+    externalConnectorRef: invocation-connection-ref-secret
+  statestore:
+    type: Native
+
+---
+apiVersion: spawn-eigr.io/v1
+kind: ActorSystem
+metadata:
+  name: rebels-system
+  namespace: default
+spec:
+  externalInvocation:
+    enabled: "true"
+    externalConnectorRef: invocation-connection-ref-secret
+  statestore:
+    type: Native
+
+---
+apiVersion: spawn-eigr.io/v1
+kind: ActorHost
+metadata:
+  name: empire
+  namespace: default
+  annotations:
+    spawn-eigr.io/actor-system: empire-system
+spec:
+  host:
+    image: eigr/spawn-playground-starwars-empire:1.0.0
+    ports:
+      - name: http
+        containerPort: 8090
+  autoscaler:
+    max: 3
+
+---
+apiVersion: spawn-eigr.io/v1
+kind: ActorHost
+metadata:
+  name: rebels
+  namespace: default
+  annotations:
+    spawn-eigr.io/actor-system: rebels-system
+spec:
+  host:
+    image: eigr/spawn-playground-starwars-rebels:1.0.0
+    ports:
+      - name: http
+        containerPort: 8090
+  autoscaler:
+    max: 3
