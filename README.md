@@ -1,1 +1,1 @@
-# playground-recipes
+# Playground Recipes

@@ -1,0 +1,13 @@
+syntax = "proto3";
+
+package io.eigr.spawn.starwars.rebels;
+
+option java_package = "io.eigr.spawn.starwars.rebels";
+
+import "io/eigr/spawn/starwars/common.proto";
+
+message XWingState {}
+
+service XWing { 
+    rpc Fight(io.eigr.spawn.starwars.FireRequest) returns (io.eigr.spawn.starwars.FireResponse); 
+}

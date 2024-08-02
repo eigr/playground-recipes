@@ -1,0 +1,16 @@
+---
+apiVersion: spawn-eigr.io/v1
+kind: ActorHost
+metadata:
+  name: empire
+  namespace: default
+  annotations:
+    spawn-eigr.io/actor-system: empire-system
+spec:
+  host:
+    image: eigr/spawn-playground-starwars-empire:1.0.0
+    ports:
+      - name: http
+        containerPort: 8090
+  autoscaler:
+    max: 3
