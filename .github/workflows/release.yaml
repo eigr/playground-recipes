@@ -1,0 +1,43 @@
+name: Release Playground Recipes
+
+on:
+  push:
+    tags:
+      - "*"
+
+jobs:
+  build:
+    name: Publish binaries
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Build
+        shell: bash
+        run: |
+          tar -czvf starwars-${{ github.ref_name }}.tar.gz dart && mv starwars-${{ github.ref_name }}.tar.gz artifacts/
+
+      - name: Update CHANGELOG
+        id: changelog
+        uses: requarks/changelog-action@v1
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          tag: ${{ github.ref_name }}
+          includeInvalidCommits: true
+
+      - name: Upload binaries to release
+        if: always()
+        uses: svenstaro/upload-release-action@v2
+        with:
+          repo_token: ${{ secrets.GITHUB_TOKEN }}
+          file: artifacts/*.tar.gz
+          tag: ${{ github.ref }}
+          overwrite: true
+          file_glob: true
+          body: ${{ steps.changelog.outputs.changes }}
+
+      - name: Cleanup
+        shell: bash
+        run: |
+          rm -rf artifacts/starwars-${{ github.ref_name }}.tar.gz
