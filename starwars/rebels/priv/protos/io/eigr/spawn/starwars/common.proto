@@ -1,0 +1,9 @@
+syntax = "proto3";
+
+package io.eigr.spawn.starwars;
+
+option java_package = "io.eigr.spawn.starwars";
+
+message FireRequest {}
+
+message FireResponse {}
