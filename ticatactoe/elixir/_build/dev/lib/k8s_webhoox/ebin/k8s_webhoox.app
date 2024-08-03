@@ -1,0 +1,13 @@
+{application,k8s_webhoox,
+             [{applications,[kernel,stdlib,elixir,logger,k8s,plug,pluggable,
+                             x509,yaml_elixir]},
+              {description,"Kubernetes Webhooks SDK for Elixir.\n"},
+              {modules,['Elixir.Jason.Encoder.K8sWebhoox.Conn',
+                        'Elixir.K8sWebhoox',
+                        'Elixir.K8sWebhoox.AdmissionControl.AdmissionReview',
+                        'Elixir.K8sWebhoox.AdmissionControl.Handler',
+                        'Elixir.K8sWebhoox.Conn','Elixir.K8sWebhoox.Plug',
+                        'Elixir.K8sWebhoox.ResourceConversion.Handler',
+                        'Elixir.Pluggable.Token.K8sWebhoox.Conn']},
+              {registered,[]},
+              {vsn,"0.2.0"}]}.

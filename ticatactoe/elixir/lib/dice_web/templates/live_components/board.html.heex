@@ -1,0 +1,10 @@
+<div class="container d-flex">
+  <%= cond do %>
+  <% @snapshot -> %>
+    <DiceWeb.Live.BoardComponent.board board={@snapshot} />
+  <% @match.finished -> %>
+    <h2>Winner <%= @match.winner %></h2>
+  <% true -> %>
+    <h2>Waiting opponent</h2>
+  <% end %>
+</div>

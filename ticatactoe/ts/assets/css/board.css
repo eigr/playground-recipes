@@ -1,0 +1,80 @@
+.board-rows {
+  padding-bottom: 0;
+}
+
+.board-rows .cc {
+  cursor: pointer;
+}
+
+.rr {
+  cursor: pointer;
+}
+
+.board-rows.rr.r-0 .cc.c-0 {
+  border-bottom: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+.board-rows.rr.r-0 .cc.c-1 {
+  border-right: 1px solid #ccc;
+}
+
+.board-rows.rr.r-0 .cc.c-2 {
+  border-top: 1px solid #ccc;
+  border-right: 1px solid #ccc;
+}
+
+.board-rows.rr.r-1 .cc.c-1 {
+  border-right: 1px solid #ccc;
+  border-bottom: 1px solid #ccc;
+  border-top: 1px solid #ccc;
+}
+
+.board-rows.rr.r-1 .cc.c-0 {
+  border: 0;
+  border-right: 1px solid #ccc;
+}
+
+.board-rows.rr.r-1 .cc.c-2 {
+  border: 0;
+  border-right: 1px solid #ccc;
+}
+
+.board-rows.rr.r-2 .cc.c-0 {
+  border-bottom: 1px solid #ccc;
+}
+
+.board-rows.rr.r-2 .cc.c-1 {
+  border: 0
+}
+
+.board-rows.rr.r-2 .cc.c-2 {
+  border-bottom: 0;
+  border-top: 1px solid #ccc;
+}
+
+/* Styles for screens up to 576px (typically smartphones) */
+@media (max-width: 576px) {
+  .board-rows .spot {
+    max-height: 50px;
+    max-width: 50px;
+  }
+}
+
+.board-rows .spot {
+  background-color: #646362;
+  border-radius: 10px;
+  display: flex;
+  padding: 8px;
+  margin-bottom: 5px;
+  align-items: center;
+  justify-content: center;
+  min-height: 128px;
+  min-width: 128px;
+  font-size: 5em;
+  margin: 0;
+}
+
+.board-rows .spot.blank, .sum-rows .spot.blank {
+  background-color: inherit;
+}

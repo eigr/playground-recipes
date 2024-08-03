@@ -1,0 +1,30 @@
+---
+apiVersion: spawn-eigr.io/v1
+kind: ActorSystem
+metadata:
+  name: game-system
+  namespace: default
+spec:
+  statestore:
+    type: MySql
+    credentialsSecretRef: mysql-connection-secret
+    pool:
+      size: "10"
+
+---
+apiVersion: spawn-eigr.io/v1
+kind: ActorHost
+metadata:
+  name: spawn-dice-game
+  namespace: default
+  annotations:
+    spawn-eigr.io/actor-system: game-system
+spec:
+  host:
+    embedded: true
+    image: eigr/dice-game-example:1.0.0-rc.18
+    ports:
+      - name: "http"
+        containerPort: 8800
+  autoscaler:
+    max: 2
