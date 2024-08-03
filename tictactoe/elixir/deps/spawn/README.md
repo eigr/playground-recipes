@@ -304,7 +304,7 @@ metadata:
   name: spawn-dice-game
   namespace: default
   annotations:
-    spawn-eigr.io/actor-system: game-system
+    spawn-eigr.io/actor-system: tictactoe-system
 spec:
   host:
     embedded: true # This indicates that it is a native BEAM application and therefore does not need a sidecar proxy attached.

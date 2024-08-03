@@ -24,7 +24,7 @@ defmodule Dice.Matchmaking do
 
     SpawnSdk.invoke(matchmaking_ref,
       ref: Dice.Matchmaking.Actor,
-      system: "game-system",
+      system: "tictactoe-system",
       action: "enqueue",
       payload: payload
     )
@@ -38,7 +38,7 @@ defmodule Dice.Matchmaking do
 
     SpawnSdk.invoke(matchmaking_ref,
       ref: Dice.Matchmaking.Actor,
-      system: "game-system",
+      system: "tictactoe-system",
       action: "dequeue",
       payload: payload
     )
@@ -52,7 +52,7 @@ defmodule Dice.Matchmaking do
 
     SpawnSdk.invoke(matchmaking_ref,
       ref: Dice.Matchmaking.Actor,
-      system: "game-system",
+      system: "tictactoe-system",
       action: "manual",
       payload: payload
     )
@@ -66,7 +66,7 @@ defmodule Dice.Matchmaking do
 
     SpawnSdk.invoke(matchmaking_ref,
       ref: Dice.Matchmaking.Actor,
-      system: "game-system",
+      system: "tictactoe-system",
       action: "get_active_game",
       payload: payload
     )

@@ -1,7 +1,7 @@
 import spawn, { ActorContext, Broadcast, Kind, Value } from '@eigr/spawn-sdk'
 import { checkDraw, checkWin } from './src/board'
 
-const system = spawn.createSystem('game-system')
+const system = spawn.createSystem('tictactoe-system')
 const actor = system.buildActor({
   name: 'tic_tac_toe',
   kind: Kind.UNAMED,
