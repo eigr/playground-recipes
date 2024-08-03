@@ -2,12 +2,12 @@
 apiVersion: spawn-eigr.io/v1
 kind: ActorSystem
 metadata:
-  name: game-system
+  name: tictactoe-system
   namespace: default
 spec:
   statestore:
-    type: MySql
-    credentialsSecretRef: mysql-connection-secret
+    type: MariaDB
+    credentialsSecretRef: mariadb-connection-secret
     pool:
       size: "10"
 
@@ -18,7 +18,7 @@ metadata:
   name: spawn-dice-game
   namespace: default
   annotations:
-    spawn-eigr.io/actor-system: game-system
+    spawn-eigr.io/actor-system: tictactoe-system
 spec:
   host:
     embedded: true

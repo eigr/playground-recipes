@@ -5,7 +5,7 @@ metadata:
   name: spawn-dice-game
   namespace: default
   annotations:
-    spawn-eigr.io/actor-system: game-system
+    spawn-eigr.io/actor-system: tictactoe-system
 spec:
   host:
     embedded: true
